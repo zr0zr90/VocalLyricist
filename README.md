@@ -3,6 +3,7 @@ The "Song Maker" bot is an intelligent application capable of producing personal
 ### الصوت الكاتب
 بوت "صانع الأغاني" يعتبر تطبيقًا ذكيًا ينتج أغانيًا مخصصة للمستخدم بناءً على الكلمات التي يدخلها المستخدم، ويصممها بصوت فنانه المفضل. يستخدم البوت تقنيات الذكاء الاصطناعي ومعالجة اللغة الطبيعية لإنتاج الأغاني بجودة عالية وبالأسلوب المفضل للمستخدم. احصل على أغاني شخصية واستمتع بتجربة فريدة مع بوت "صانع الأغاني".
 
+
 # About
 
 This is an intelligent bot that creates personalized songs for the user based on the words they input, using the voice of their favorite artist. The bot utilizes smart techniques to produce high-quality songs in the user's preferred style.
@@ -17,10 +18,70 @@ This is an intelligent bot that creates personalized songs for the user based on
 1. **Clone the repository:**
    ```bash
    git clone <repository_url>
-   cd <repository_directory>Install dependencies:pip install -r requirements.txtSet up Google Cloud TTS:Enable Google Cloud Text-to-Speech API.Download your service account key JSON file.Set the environment variable to point to your JSON file:export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-file.json"Run the application:python app.pyUsageSend a POST request to /create_song with JSON payload containing text (lyrics) and artist_voice (voice model).Example payload:{
-  "text": "Your custom lyrics here",
-  "artist_voice": "en-US-Wavenet-D"
-}DeploymentYou can deploy this bot using Render or any other cloud service provider.Using Render:Push your code to GitHub.Create a new service in Render and connect your GitHub repository.Set environment variables in Render for GOOGLE_APPLICATION_CREDENTIALS.Deploy the service and access your bot.LicenseThis project is licensed under the MIT License.### 4. `.gitignore`.pyc pycache/ instance/ .webassets-cache .env venv/ .env.local .env..local .DS_Store /output.mp3### 5. `Procfile` (for deploying with Render)web: gunicorn app:app### 6. خدمة Google Cloud TTS
+   cd <repository_directory>
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up Google Cloud TTS:**
+   - Enable Google Cloud Text-to-Speech API.
+   - Download your service account key JSON file.
+   - Set the environment variable to point to your JSON file:
+     ```bash
+     export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-file.json"
+     ```
+
+4. **Run the application:**
+   ```bash
+   python app.py
+   ```
+
+## Usage
+- Send a POST request to `/create_song` with JSON payload containing `text` (lyrics) and `artist_voice` (voice model).
+- Example payload:
+  ```json
+  {
+    "text": "Your custom lyrics here",
+    "artist_voice": "en-US-Wavenet-D"
+  }
+  ```
+
+## Deployment
+You can deploy this bot using Render or any other cloud service provider.
+
+### Using Render:
+1. Push your code to GitHub.
+2. Create a new service in Render and connect your GitHub repository.
+3. Set environment variables in Render for `GOOGLE_APPLICATION_CREDENTIALS`.
+4. Deploy the service and access your bot.
+
+## License
+This project is licensed under the MIT License.
+```
+
+### 4. `.gitignore`
+```
+*.pyc
+__pycache__/
+instance/
+.webassets-cache
+.env
+venv/
+.env.local
+.env.*.local
+.DS_Store
+/output.mp3
+```
+
+### 5. `Procfile` (for deploying with Render)
+```
+web: gunicorn app:app
+```
+
+### 6. خدمة Google Cloud TTS
 تأكد من أنك قد فعلت Google Cloud Text-to-Speech API وحصلت على ملف JSON لمفاتيح الخدمة.
 
 ### التعليمات لنشر التطبيق على Render:
