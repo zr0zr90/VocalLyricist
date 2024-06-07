@@ -17,9 +17,8 @@ This is an intelligent bot that creates personalized songs for the user based on
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository_url>
-   cd <repository_directory>
-   ```
+   git clone https://github.com/zr0zr90/VocalLyricist.git
+   cd VocalLyricist
 
 2. **Install dependencies:**
    ```bash
